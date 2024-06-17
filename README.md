@@ -1,12 +1,13 @@
-# ML_Scratch
-# Linear Regression Derivation (2D)
+# Linear Regression Derivation
 
-## Objective
+## Simple Linear Regression (2D)
+
+### Objective
 The goal of linear regression is to find the best-fitting straight line through a set of points. The line can be described by the equation:
 \[ y = \beta_0 + \beta_1 x \]
 where \( \beta_0 \) is the y-intercept and \( \beta_1 \) is the slope of the line.
 
-## Derivation
+### Derivation
 
 1. **Formulate the Cost Function**:
    The cost function (also called the loss function) measures how well a given line fits the data points. The most common cost function used is the Mean Squared Error (MSE):
@@ -46,14 +47,14 @@ where \( \beta_0 \) is the y-intercept and \( \beta_1 \) is the slope of the lin
    Once \( \beta_1 \) is known, substitute it back into:
    \[ \beta_0 = \bar{y} - \beta_1 \bar{x} \]
 
-## Summary
+### Summary
 The final coefficients for the best-fitting line are:
 \[ \beta_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2} \]
 \[ \beta_0 = \bar{y} - \beta_1 \bar{x} \]
 
-# Multilinear Regression Derivation
+## Multilinear Regression
 
-## Model
+### Model
 The equation for a multilinear regression model with \( p \) independent variables is:
 \[ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_p x_p + \epsilon \]
 where:
@@ -62,10 +63,10 @@ where:
 - \( \beta_1, \beta_2, \ldots, \beta_p \) are the coefficients for the independent variables \( x_1, x_2, \ldots, x_p \).
 - \( \epsilon \) is the error term.
 
-## Objective
+### Objective
 The goal is to estimate the coefficients \( \beta_0, \beta_1, \ldots, \beta_p \) such that the sum of the squared differences between the observed and predicted values of \( y \) is minimized.
 
-## Derivation
+### Derivation
 
 1. **Formulate the Cost Function**:
    The cost function (often the Mean Squared Error) measures how well the model fits the data. It is given by:
@@ -87,4 +88,11 @@ The goal is to estimate the coefficients \( \beta_0, \beta_1, \ldots, \beta_p \)
    \[ \mathbf{X}^T \mathbf{X} \boldsymbol{\beta} = \mathbf{X}^T \mathbf{y} \]
 
 4. **Solve for \( \boldsymbol{\beta} \)**:
-   Provided \( \
+   Provided \( \mathbf{X}^T \mathbf{X} \) is invertible, the solution for \( \boldsymbol{\beta} \) is:
+   \[ \boldsymbol{\beta} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y} \]
+
+### Summary
+The coefficients \( \boldsymbol{\beta} \) for the multilinear regression model are obtained by solving the normal equation:
+\[ \boldsymbol{\beta} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y} \]
+
+This solution minimizes the sum of squared errors and provides the best linear fit for the data in terms of the least squares criterion. The resulting model can be used to make predictions by plugging in values for the independent variables.
